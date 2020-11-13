@@ -1,0 +1,53 @@
+body {
+    --light-color: darkorange;
+    --dark-color: #333;
+    --text-color: white;
+}
+body {
+    background-color: var(--dark-color);
+    font-size: 30px;
+}
+.pulse {
+    position: absolute;
+}
+#bottom-menu {
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    overflow: hidden;    
+}
+#bottom-menu a {
+    background-color: var(--light-color);
+    color: var(--text-color);
+    display: block;
+    padding: 0.5em;
+    margin-bottom: 0.2em;
+    border-radius: 100%;
+    filter: drop-shadow(0 0 1px black);
+    transform: translateY(6.7em); 
+    text-align: center;     
+}
+#bottom-menu li:first-child a {
+    animation: animate 3s linear infinite;  
+}
+#bottom-menu:target a {
+    transform: translateY(0);
+    transition: 1s;
+}
+#bottom-menu:hover li a {
+    animation: none;
+}
+@keyframes animate {
+    0% {
+        box-shadow: 0 0 0 0 #888, 0 0 0 0 #888;
+    }
+    40% {
+        box-shadow: 0 0 0 1em transparent, 0 0 0 0.5em #888;
+    }
+    80% {
+        box-shadow: 0 0 0 1em transparent, 0 0 0 0.5em transparent;
+    }
+    100% {
+        box-shadow: 0 0 0 1em transparent, 0 0 0 0.5em transparent;
+    }
+}
